@@ -16,7 +16,7 @@ available in your package manager.
 If you have `git`, you can now clone the repository and build:
 
 ```shell
-git clone https://github.com/normenmueller/armlet..git
+git clone https://github.com/normenmueller/armlet.git
 cd armlet
 git checkout <commit/tag/branch>
 stack install
