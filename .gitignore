@@ -1,0 +1,14 @@
+*~
+.cabal-sandbox/
+.lib/
+.stack-work/
+
+cabal-dev
+cabal.sandbox.config
+dist
+dist-*
+out
+
+tags
+armlet.cabal
+stack.yaml.lock

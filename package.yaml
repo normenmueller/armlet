@@ -1,0 +1,50 @@
+name:                armlet
+version:             0.1.0
+synopsis:            n/a
+license:             BSD3
+author:              "Normen Müller"
+maintainer:          "normen.mueller@gmail.com"
+copyright:           "Copyright: (c) 2020 Normen Müller"
+category:            Simple
+description:         Please see the README
+
+extra-source-files:
+- LICENSE
+- README.md
+- HISTORY.md
+
+dependencies:
+- base >= 4.7 && < 5
+- containers >= 0.6.0.1
+- optparse-applicative >= 0.14.3.0
+- semver >= 0.3.4
+- text >= 1.2.3.1
+- xml-conduit >= 1.8.0.1
+- xml-types >= 0.3.6
+
+library:
+  source-dirs: src
+
+executables:
+  armlet:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - armlet
+
+tests:
+  armlet-test:
+    main:                Spec.hs
+    source-dirs:         tst
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - armlet
+    - hspec
+    - QuickCheck
