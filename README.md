@@ -28,10 +28,24 @@ directory that contains `stack.yaml` file.
 
 This will install `armlet` executable to `$HOME/.local/bin`.
 
-To install the bash completion system-wide:
+To install the `bash` completion *system-wide*:
 
 ```
 armlet --bash-completion-script armlet >/etc/bash_completion.d/armlet
+```
+
+To install the `zsh` completion user-specific, add the following to your `.zshrc`:
+
+```
+armlet --zsh-completion-script `which armlet` > ${HOME}/.local/_armlet
+FPATH=${HOME}/.local/:$FPATH
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
 ```
 
 # Usage
@@ -45,7 +59,7 @@ details.
 
 © 2020 Normen Müller
 
-Contributors (per GPL, holders of copyright on their respective contributions):
+Contributors (per BSD, holders of copyright on their respective contributions):
 
 <!-- BEGIN CONTRIBUTORS LIST -->
 - Normen Müller
