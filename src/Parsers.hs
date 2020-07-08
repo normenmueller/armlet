@@ -118,4 +118,4 @@ releaseCmd :: Parser Cmd
 releaseCmd =
     ReleaseCmd
         <$> argument str (metavar "SOURCE")
-        <*> argument str (metavar "VERSION (major.minor.patch) or VERSION COMPONENT (major, minor, patch)")
+        <*> strOption (long "version" <> short 'v' <> metavar "VERSION" <> help "Version string (major.minor.patch) or Version component (major, minor, patch)")
