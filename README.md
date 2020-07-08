@@ -58,10 +58,3 @@ See [LICENSE](https://github.com/normenmueller/armlet/blob/master/LICENSE) for
 details.
 
 © 2020 Normen Müller
-
-Contributors (per BSD, holders of copyright on their respective contributions):
-
-<!-- BEGIN CONTRIBUTORS LIST -->
-- Normen Müller
-
-<!-- END CONTRIBUTORS LIST -->
