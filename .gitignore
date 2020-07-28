@@ -1,13 +1,13 @@
-*~
-.cabal-sandbox/
 .lib/
+.idea/
 .stack-work/
 
-cabal-dev
-cabal.sandbox.config
-dist
-dist-*
-out
+out/
+
+*~
+*.iml
+*.ipr
+*.iws
 
 tags
 armlet.cabal
