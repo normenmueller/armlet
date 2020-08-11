@@ -24,18 +24,18 @@ import           Prelude               hiding (readFile)
 import           Text.XML
 import           Text.XML.Stream.Parse
 
-{--------------------------------------------------------------------------------------------------
+{------------------------------------------------------------------------------
   XML Parsing
----------------------------------------------------------------------------------------------------}
+-------------------------------------------------------------------------------}
 
 parse :: FilePath -> IO Document
 parse = readFile dft
   where
     dft = def {psRetainNamespaces = True}
 
-{--------------------------------------------------------------------------------------------------
+{------------------------------------------------------------------------------
   Commandline Parsing
----------------------------------------------------------------------------------------------------}
+-------------------------------------------------------------------------------}
 
 data Opt =
     Opt
@@ -69,13 +69,16 @@ cmdln =
     execParser $
     info
         (helper <*> veropt <*> opts)
-        (fullDesc <> header "armlet - ARchimate Modelling LanguagE Transformations")
+        (fullDesc <>
+         header "armlet - ARchimate Modelling LanguagE Transformations")
   where
     veropt :: Parser (a -> a)
-    veropt = infoOption (showVersion version) (long "version" <> help "Show version")
+    veropt =
+        infoOption (showVersion version) (long "version" <> help "Show version")
 
--- Note: As @program --global-options command --local-options@ is a fairly standard pattern, we do
--- not support @program command --global-and-local-options@.
+-- Note: As @program --global-options command --local-options@ is a fairly
+-- standard pattern, we do not support @program command
+-- --global-and-local-options@.
 --
 -- Note: Global options are not shown in sub-commands.
 -- (cf. [#138](https://github.com/pcapriotti/optparse-applicative/issues/138))
@@ -97,16 +100,17 @@ withInfo opts desc = info (opts <**> helper) (progDesc desc)
 
 stampCmd :: Parser Cmd
 stampCmd =
-    StampCmd
-        <$> argument str (metavar "SOURCE")
-        <*> strOption (long "author" <> metavar "AUTHOR" <> help "Author's stamp")
+    StampCmd <$> argument str (metavar "SOURCE") <*>
+    strOption (long "author" <> metavar "AUTHOR" <> help "Author's stamp")
 
 markCmd :: Parser Cmd
 markCmd =
-    MarkCmd
-        <$> argument str (metavar "SOURCE")
-        <*> strOption (long "scope" <> short 's' <> metavar "SCOPE" <> help "Scope to colorize")
-        <*> strOption (long "color" <> short 'c' <> metavar "COLOR" <> help "Colore to use")
+    MarkCmd <$> argument str (metavar "SOURCE") <*>
+    strOption
+        (long "scope" <>
+         short 's' <> metavar "SCOPE" <> help "Scope to colorize") <*>
+    strOption
+        (long "color" <> short 'c' <> metavar "COLOR" <> help "Colore to use")
 
 unmarkCmd :: Parser Cmd
 unmarkCmd = UnmarkCmd <$> argument str (metavar "SOURCE")
@@ -116,6 +120,10 @@ normalizeCmd = NormalizeCmd <$> argument str (metavar "SOURCE")
 
 releaseCmd :: Parser Cmd
 releaseCmd =
-    ReleaseCmd
-        <$> argument str (metavar "SOURCE")
-        <*> strOption (long "version" <> short 'v' <> metavar "VERSION" <> help "Version string (major.minor.patch) or Version component (major, minor, patch)")
+    ReleaseCmd <$> argument str (metavar "SOURCE") <*>
+    strOption
+        (long "version" <>
+         short 'v' <>
+         metavar "VERSION" <>
+         help
+             "Version string (major.minor.patch) or Version component (major, minor, patch)")

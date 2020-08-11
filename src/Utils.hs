@@ -21,7 +21,6 @@ import qualified Data.Map.Strict     as Map
 import           Data.Maybe
 import           Data.Text           (Text)
 import qualified Data.Text           as T
-import qualified Data.XML.Types      as X
 import           Text.XML
 
 import Types

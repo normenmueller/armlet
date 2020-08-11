@@ -28,10 +28,13 @@ render = maybe (print . render') (writeFile dft)
 render' :: Document -> TL.Text
 render' = renderText dft
 
--- Note: `rsPretty` disfigures formatting of documentation, ie., for example, newlines are silently
--- removed.
+-- Note: `rsPretty` disfigures formatting of documentation, ie., for example,
+-- newlines are silently removed.
 dft =
-    def { rsPretty = True, rsNamespaces = [("xsi", "http://www.w3.org/2001/XMLSchema-instance")] }
+    def
+        { rsPretty = True
+        , rsNamespaces = [("xsi", "http://www.w3.org/2001/XMLSchema-instance")]
+        }
 
 -- @rsAttrOrder@ clashes with @Transformers.normalize@.
 -- def
