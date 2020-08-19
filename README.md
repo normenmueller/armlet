@@ -5,6 +5,8 @@ an accessory with which you can decorate models described in
 [ArchiMate](https://pubs.opengroup.org/architecture/archimate3-doc/toc.html)
 and represented by [Archi](https://www.archimatetool.com/).
 
+*Note*: `.archimate` must be XML. If, e.g., you include a canvas in you model, Archi utilizes a proprietary binary format.
+
 # Installation
 
 First of all, get `stack` if you don't have it already: see the [official stack
