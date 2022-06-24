@@ -1,7 +1,8 @@
 #resolver: lts-16.15
 #resolver: lts-16.23
 #resolver: lts-17.4
-resolver: lts-17.6
+#resolver: lts-17.6
+resolver: lts-17.9
 packages:
 - .
 # extra-deps:
